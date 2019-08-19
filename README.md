@@ -1,24 +1,5 @@
-# README
+Click on any movie poster to navigate to that movie's individual movie page. Each movie's page contains that movie's average user score and a list of reviews left from users on this app. Users can view movies and reviews even if they are not logged in. To leave a review users must be signed in.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo: https://www.youtube.com/watch?v=qEwOMaFb5vA
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Front End: https://github.com/KMalazarte/Mod_4_front_end
