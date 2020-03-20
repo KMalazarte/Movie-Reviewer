@@ -7,8 +7,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
-    render json: {movies: @movie}
+    @movie = Movie.find{|movie| movie[:title] == params[:title]}
+    render json: @movie
   end
 
   def new
