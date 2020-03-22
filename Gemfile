@@ -52,6 +52,6 @@ gem 'rest-client'
 
 gem "faker", "~> 1.9"
 
-gem "rest-client"
-
 gem 'rack-cors', :require => 'rack/cors'
+
+gem 'dotenv-rails'

@@ -3,6 +3,8 @@ class MoviesController < ApplicationController
 
   def index
     @all = Movie.all
+    count = Movie.count.to_s
+    response.set_header('X-Total-Count', count)
     render json: @all
   end
 
