@@ -9,8 +9,10 @@ require 'byebug'
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create :username => "Kevin", :password_digest => "Kevin"
 
+
 def get_popular_movies()
-  api = RestClient.get("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=ENV['EXAMPLE_API_KEY']")
+  tmdb_key = ENV["API_KEY"]
+  api = RestClient.get("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=#{tmdb_key}")
   movie_obj = JSON.parse(api)
 
   # byebug
