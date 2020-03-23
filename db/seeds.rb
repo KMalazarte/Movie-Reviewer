@@ -7,10 +7,11 @@ require 'byebug'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create :username => "Kevin", :password_digest => "password"
 
-def thing()
-  api = RestClient.get("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=be88eec84f09c039b6c361bdf5e07e11")
+
+def get_popular_movies()
+  tmdb_key = ENV["API_KEY"]
+  api = RestClient.get("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=#{tmdb_key}")
   movie_obj = JSON.parse(api)
 
   # byebug
@@ -18,4 +19,5 @@ def thing()
 
     data.map{|movie| Movie.create(title: movie["title"], description: movie["overview"], avg_score: movie["vote_average"], movie_img: movie["poster_path"], user_comment: [])}
 end
-thing
+
+get_popular_movies
