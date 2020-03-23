@@ -55,3 +55,7 @@ gem "faker", "~> 1.9"
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'dotenv-rails'
+
+gem 'rails_12factor'
+
+gem 'foreman'
