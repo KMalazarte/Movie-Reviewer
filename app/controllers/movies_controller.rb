@@ -1,15 +1,17 @@
 class MoviesController < ApplicationController
-  skip_before_action :authorized
+  skip_before_action :authorized, :verify_authenticity_token
 
   def index
     @all = Movie.all
     count = Movie.count.to_s
+    response.set_header('Access-Control-Expose-Headers', "X-Total-Count")
     response.set_header('X-Total-Count', count)
     render json: @all
   end
 
   def show
-    @movie = Movie.find{|movie| movie[:title] == params[:title]}
+    # @movie = Movie.find{|movie| movie[:title] == params[:title]}
+    @movie = Movie.find(params[:id])
     render json: @movie
   end
 

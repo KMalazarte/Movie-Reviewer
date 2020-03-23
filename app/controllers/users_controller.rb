@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :index]
   skip_before_action :verify_authenticity_token
 
-    # def profile
-    #   render json: { user: UserSerializer.new(current_user) }, status: :accepted
-    # end
+    def index
+      @all = User.all
+      count = User.count.to_s
+      response.set_header('Access-Control-Expose-Headers', "X-Total-Count")
+      response.set_header('X-Total-Count', count)
+      render json: @all
+    end
 
     def profile
       # find by username because that param is provided

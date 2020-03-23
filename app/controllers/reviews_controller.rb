@@ -2,9 +2,16 @@ class ReviewsController < ApplicationController
   skip_before_action :authorized
   skip_before_action :verify_authenticity_token
 
+  def index
+    @all = Review.all
+    count = Review.count.to_s
+    response.set_header('Access-Control-Expose-Headers', "X-Total-Count")
+    response.set_header('X-Total-Count', count)
+    render json: @all
+  end
 
   def show
-    @review = Review.select{ |r| r[:movie_title] == params[:title]}
+    @review = Review.select{ |r| r[:movie_id] == params[:id].to_i}
     render json: @review
   end
 
