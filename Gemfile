@@ -25,8 +25,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,6 +50,7 @@ gem 'rest-client'
 
 gem "faker", "~> 1.9"
 
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'dotenv-rails'
@@ -59,3 +58,5 @@ gem 'dotenv-rails'
 gem 'rails_12factor'
 
 gem 'foreman'
+
+gem 'friendly_id', '~> 5.2.4'
