@@ -10,8 +10,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    # @movie = Movie.find{|movie| movie[:title] == params[:title]}
-    @movie = Movie.find(params[:id])
+    @movie = Movie.friendly.find(params[:id])
     render json: @movie
   end
 
