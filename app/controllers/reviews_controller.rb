@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    # @review = Review.select{ |r| r[:movie_id] == params[:id].to_i}
     @review = Review.select{ |r| r[:movie_id] == params[:id].to_i}
     render json: @review
   end
