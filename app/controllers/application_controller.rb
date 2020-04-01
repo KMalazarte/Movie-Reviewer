@@ -1,10 +1,9 @@
  class ApplicationController < ActionController::Base
   before_action :authorized
 
-  secret = ENV["MY_SECRET"]
-
   def encode_token(payload)
     # should store secret in env variable
+    secret = ENV["MY_SECRET"]
     JWT.encode(payload, secret)
   end
 
@@ -14,6 +13,7 @@
   end
 
   def decoded_token
+    secret = ENV["MY_SECRET"]
     if auth_header()
       token = auth_header.split(' ')[1]
       # header: { 'Authorization': 'Bearer <token>' }

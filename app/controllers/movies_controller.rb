@@ -6,6 +6,8 @@ class MoviesController < ApplicationController
     count = Movie.count.to_s
     response.set_header('Access-Control-Expose-Headers', "X-Total-Count")
     response.set_header('X-Total-Count', count)
+    # response.set_header('Access-Control-Expose-Headers', "Content-Range")
+    # response.set_header('Content-Range', "movies 0-20/20")
     render json: @all
   end
 

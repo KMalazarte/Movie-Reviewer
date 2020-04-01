@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   post '/login', to: 'auth#create'
-  
+
   get '/profile', to: "users#profile"
 
   post '/movies', to: "movies#create"
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/movies/:id/reviews', to: "reviews#create"
   get '/movies/:id', to: "movies#show"
   put 'movies/:id', to: "movies#update"
+  patch 'movies/:id', to: "movies#update"
 
   get '/reviews', to:"reviews#index"
   get '/reviews/:id', to: "reviews#user_reviews"
